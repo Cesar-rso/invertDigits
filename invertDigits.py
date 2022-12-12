@@ -1,16 +1,12 @@
 def invertDigits(number):
-    n = []
     result = 0
     
-    while number > 0:                       # This loop gets the last digit from the number 
-        nxt_n = number % 10                 # with a modulus operation and stores it in the array n.
-        n.append(nxt_n)                     # Then subtract it from the original number and divides
-        number = (number - nxt_n) // 10     # the number by 10 to completely remove the last digit.
+    while number > 0:
+        nxt_n = number % 10                # Get the remainder of integer division by 10
+        result = (result * 10) + nxt_n     # Multiply result by 10 and add the calculated remainder
+        number = (number - nxt_n) // 10    # Divide the number by 10 to reduce the number and get the next digit in the next iteration
         
-    for digit in n:                         # This loops through the array n and for each number
-        result = (result * 10) + digit      # in it, the current result is multiplied by 10 and
-                                            # added the current number.
-    return result                           # The final result is the inverted number.
+    return result                          # The final result is the inverted number.
     
     
 if __name__ == '__main__':
